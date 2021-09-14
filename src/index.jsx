@@ -1,12 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { applyPolyfills, defineCustomElements } from '@esri/calcite-components/dist/loader';
+import App from './app'
 
-const HelloWorld = () => {
-    return (
-        <h1>
-            Hello World
-        </h1>
-    );
-}
+applyPolyfills().then(() => {
+  defineCustomElements(window, {resourcesUrl: './a'});
+});
 
-ReactDOM.render(<HelloWorld />, document.getElementById("root"));
+ReactDOM.render(<App />, document.getElementById("root"));
