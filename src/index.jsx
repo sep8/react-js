@@ -1,11 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { loadModule } from './module-loader'
 
 const HelloWorld = () => {
     const [Another, setAnother] = React.useState('div')
 
     React.useEffect(() => {
-        import('./another').then((module) => {
+        loadModule('./another').then((module) => {
             setAnother(module.Another)
         })
     }, [])
